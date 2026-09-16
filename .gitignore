@@ -1,0 +1,10 @@
+node_modules
+dist
+.env.local
+.env
+saves/
+.boss-backup/
+.recovery/
+.lvdiag
+.trae
+*.tsbuildinfo

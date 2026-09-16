@@ -1,0 +1,28 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "tingyun.moc3",
+    "Textures": [
+      "tingyun.4096/texture_00.png"
+    ],
+    "Physics": "tingyun.physics3.json",
+    "DisplayInfo": "tingyun.cdi3.json"
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": [
+        "ParamEyeROpen",
+        "ParamEyeRSmile",
+        "ParamEyeLOpen",
+        "ParamEyeLSmile"
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": []
+    }
+  ]
+}

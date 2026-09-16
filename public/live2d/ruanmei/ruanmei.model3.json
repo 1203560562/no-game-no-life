@@ -1,0 +1,26 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "ruanmei.moc3",
+    "Textures": [
+      "ruanmei.8192/texture_00.png",
+      "ruanmei.8192/texture_01.png",
+      "ruanmei.8192/texture_02.png",
+      "ruanmei.8192/texture_03.png"
+    ],
+    "Physics": "ruanmei.physics3.json",
+    "DisplayInfo": "ruanmei.cdi3.json"
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": []
+    },
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": []
+    }
+  ]
+}
