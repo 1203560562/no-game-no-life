@@ -8,3 +8,5 @@ saves/
 .lvdiag
 .trae
 *.tsbuildinfo
+.vite/
+scripts/autostart.log
