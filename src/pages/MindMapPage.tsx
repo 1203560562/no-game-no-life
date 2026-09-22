@@ -356,8 +356,17 @@ export const MindMapPage: React.FC<{ onRecord?: (presetTitle?: string) => void }
   }
 
   // 初始化 / 切换导图：创建实例，防抖保存，卸载时销毁
+  // elSized：容器布局未就绪（如 dev 整页 reload 时 CSS 注入竞态，测量为 0×0）
+  // 时下一帧重试，避免库在构造时抛「容器元素el的宽高不能为0」
+  const [elSized, setElSized] = useState(0)
   useEffect(() => {
     if (!activeDocId || !containerRef.current) return
+    const el = containerRef.current
+    if (el.clientWidth === 0 || el.clientHeight === 0) {
+      if (elSized >= 300) return // 重试约 5 秒仍无尺寸则放弃，避免无限循环
+      const raf = requestAnimationFrame(() => setElSized((n) => n + 1))
+      return () => cancelAnimationFrame(raf)
+    }
     const doc = useGameStore.getState().state.mindMaps?.find((d) => d.id === activeDocId)
     if (!doc) return
 
@@ -660,7 +669,7 @@ export const MindMapPage: React.FC<{ onRecord?: (presetTitle?: string) => void }
       mm.destroy()
       mmRef.current = null
     }
-  }, [activeDocId])
+  }, [activeDocId, elSized])
 
   const handleCreate = () => {
     const title = `任务榜 ${docs.length + 1}`
